@@ -4,9 +4,8 @@ function [g2] = add_segment(g1,segment)
 %If the segment is not correct (non existing nodes or zero/negative distance) then an error is
 %shown in console and the returned g2 is equal to g1.
  g2=g1;
- if (node_name=='ERROR' || segment.w<=0)
+ if (node_name(g1,segments)=='ERROR' || segments.weight<=0)
   fprintf('there are an error with something');
-  end
  else
   k=length (g1);
   g2(k+1)=(segment);
