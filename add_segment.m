@@ -5,10 +5,10 @@ function [g2] = add_segment(g1,segment)
 %shown in console and the returned g2 is equal to g1.
  g2=g1;
  if (node_name=='ERROR' || segment.w<=0)
-  printf("there are an error with something")
+  fprintf('there are an error with something');
   end
  else
   k=length (g1);
-  g2(k+1)=(segment)
+  g2(k+1)=(segment);
   end
 end
