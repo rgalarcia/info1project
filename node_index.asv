@@ -1,0 +1,16 @@
+clear all 
+clc
+function [index]=node_index(g,node_name)
+g=Tgraph;
+g.nodes=['A','B','C','D','E','F','G','H'];
+node_name=input('Node name:','s');
+index=-1; 
+i=0;
+while (0<length(g.nodes)&&(index==-1))
+    if g.nodes(i)==node_name
+        index=i
+    end
+end
+end 
+
+
