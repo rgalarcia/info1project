@@ -20,5 +20,4 @@ function [g2] = add_segment (g1, segment)
         g2.segments(k+1) = segment;
     end
  end
- 
 end
