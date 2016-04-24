@@ -1,3 +1,4 @@
+% This function adds a node to an existing graph
 function [g2] = add_node(g1, node_name)
     g2 = g1;
     
@@ -13,7 +14,6 @@ function [g2] = add_node(g1, node_name)
     
     % If node_name was not present in g1, we add it to g2
     if (~found)
-        fprintf('Hello');
         index = length(g2.nodes) + 1;
         g2.nodes(index) = node_name;
     end

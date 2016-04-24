@@ -1,3 +1,4 @@
+% This function creates a segment with the specified data
 function [seg] = create_segment(i1, i2, w)
     Tsegment = struct('source', 0, 'destination', 0, 'weight', 0); % We create a structure of type Tsegment
     seg = Tsegment;
