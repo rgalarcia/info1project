@@ -10,7 +10,7 @@ function [g2] = add_segment (g1, segment)
      max = segment.destination;
  end
  
- if (strcmp(node_name(g1, max), 'ERROR') || segment.weight <= 0)
+ if (strcmp(node_name(g1, max), 'ERRO') || segment.weight <= 0)
     fprintf('The provided segment is not correct. Please check it.');
  else
     k = length(g1.segments);
