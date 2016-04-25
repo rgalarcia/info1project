@@ -5,7 +5,7 @@ function [g2] = add_node(g1, node_name)
     % We check whether node_name is already present in g1 or not
     i = 1;
     found = false;
-    while (i <= length(g1.nodes) && ~found)
+    while (i <= length(g1.nodes) && ~found) % Search algorithm
         if (g1.nodes(i) == node_name)
             found = true;
         end

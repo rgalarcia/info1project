@@ -1,3 +1,5 @@
+% Given a node, this function checks which is the closest node to it
+% (in case of error, returns 'ERRO')
 function [dst_index] = closest_node (g, src_index)
     n = 1;
     min = +inf;
@@ -6,7 +8,7 @@ function [dst_index] = closest_node (g, src_index)
     while (n <= length(g.segments))
         if (g.segments(n).source == src_index)
             if (g.segments(n).weight < min) 
-               min = g.segments(n).weight; %new minim weight
+               min = g.segments(n).weight; % new minim weight
                min_dstindex = g.segments(n).destination;
             end
         end
