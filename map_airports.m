@@ -35,7 +35,7 @@ function map_airports (Airports, countryId)
             fprintf(f, '<Point>\n');
             fprintf(f, '<coordinates>%f, %f, 0</coordinates>', lat, long);
             fprintf(f, '</Point>');
-            fpirntf(f, '</Placemark>');
+            fprintf(f, '</Placemark>');
         
         end
         
