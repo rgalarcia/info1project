@@ -1,4 +1,5 @@
 % Creates a graph with the nodes specified in the PDF's figure
+clear all
 g=create_graph();
 g=add_node(g,'A');
 g=add_node(g,'B');

@@ -1,10 +1,19 @@
-function[Airport_full]=locate_airports(Airports,NP)
- Airport_full=[]
- i=1;
- while (i<=length(Airports))
-  [a,b,c]=find_navPoint(NP,Airports(i).SIDs)
-  Airports(i).lat=a
-  Airports(i).long=b
- end
- Airport_full=Airports
+function Airports_full=locate_airports(Airports,NP)
+    n=1
+while (n<=length(Airports))
+    i=1
+    while (i<=length(Airports(n).SIDS))
+        [lat,lon,id]=find_navPoint(NP,Airports(n).SIDS(i).NavPointName);
+        Airports(n).SIDS(i).long=lon;
+        Airports(n).SIDS(i).lat=lat;
+        Airports(n).SIDS(i).NavPointID=id;
+        i=i+1;
+    end
+    Airports(n).long=Airports(n).SIDS(1).long;
+    Airports(n).lat=Airports(n).SIDS(1).lat;
+    n=n+1
 end
+Airports_full=Airports;
+end 
+
+    
