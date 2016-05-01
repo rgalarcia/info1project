@@ -17,6 +17,6 @@ while (found==false && i<=length(NP))
  i=i+1;
 end 
 if found==false
-    fprintf('error')
+    fprintf('error\n')
 end 
 end 
