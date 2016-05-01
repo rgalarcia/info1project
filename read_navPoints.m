@@ -1,6 +1,8 @@
 function [NP] = read_navPoints()
+
     TnavPoint = struct ('NavPointID', 0, 'NavPointName', ' ', 'long', 0.0, 'lat', 0.0);
     NavPoint=TnavPoint;
+    
     f = fopen('NavPoints.txt' , 'r');
     n = 1;
     if(f == -1)

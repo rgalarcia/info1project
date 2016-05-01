@@ -10,22 +10,22 @@ function [Airports] = read_airports()
     end
     while (~feof(f))
         Airports(r).name = fgetl(f);
-        V=strsplit(fgetl(f));
-        V=cellstr(V)
-        n=1
-        while (n<=length(V))
-            Tnavpoint.NavPointName=V{n}
+        V = strsplit(fgetl(f));
+        V = cellstr(V);
+        n = 1;
+        while (n <= length(V))
+            Tnavpoint.NavPointName = V{n};
             Airports(r).SIDS(n) = Tnavpoint;
-            n=n+1
+            n = n + 1;
         end
-        V=strsplit(fgetl(f));     %crea: V=['ANAMA';'GONOS';'NOTAR';'VALGA'] : cadena de caracters
-        V=cellstr(V)              %cadena de caracters --> vector de strings
-        n=1
+        V = strsplit(fgetl(f));     %crea: V=['ANAMA';'GONOS';'NOTAR';'VALGA'] : cadena de caracters
+        V = cellstr(V);              %cadena de caracters --> vector de strings
+        n = 1;
         while (n<=length(V))
-            Tnavpoint.NavPointName=V{n}
+            Tnavpoint.NavPointName = V{n};
             Airports(r).STARTS(n) = Tnavpoint;
-            n=n+1
+            n = n + 1;
         end
-        r= r+1;
+        r = r + 1;
     end
 end
