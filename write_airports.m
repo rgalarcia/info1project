@@ -17,7 +17,7 @@ function write_airports (Airports)
         % latitude and longitude for each airport, and writing the data
         % into the specified file, properly separated by lines
         i = 1;
-        while (i <= Airports.length())
+        while (i <= length(Airports))
             fprintf(f, '%s\n', Airports(i).name);
             fprintf(f, '%f %f\n', Airports(i).lat, Airports(i).long);
             i = i + 1;

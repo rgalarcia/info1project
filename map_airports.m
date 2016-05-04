@@ -21,9 +21,9 @@ function map_airports (Airports, countryId)
         % insert the airport's data into the KML file.
         if (cntry == countryId)
             
-            name = Airports.name(i);
-            lat = Airports.lat(i);
-            long = Airports.long(i);
+            name = Airports(i).name;
+            lat = Airports(i).lat;
+            long = Airports(i).long;
 
             fprintf(f, '<Placemark>\n');
             fprintf(f, '<name>\n');
@@ -32,10 +32,11 @@ function map_airports (Airports, countryId)
 
             fprintf(f, '<description>\n');
             fprintf(f, '%s Airport\n', name);
+            fprintf(f, '</description>\n');
             fprintf(f, '<Point>\n');
-            fprintf(f, '<coordinates>%f, %f, 0</coordinates>', lat, long);
-            fprintf(f, '</Point>');
-            fprintf(f, '</Placemark>');
+            fprintf(f, '<coordinates>%f, %f, 0</coordinates>\n', lat, long);
+            fprintf(f, '</Point>\n');
+            fprintf(f, '</Placemark>\n');
         
         end
         
