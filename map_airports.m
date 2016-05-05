@@ -12,6 +12,7 @@ function map_airports (Airports, countryId)
     % KML file creation
     fprintf(f, '<?xml version="1.0" encoding="UTF-8"?>\n');
     fprintf(f, '<kml xmlns="http://www.opengis.net/kml/2.2">\n');
+    fprintf(f, '<Document>\n');
     
     i = 1;
     while (i <= length(Airports))
@@ -43,6 +44,7 @@ function map_airports (Airports, countryId)
         i = i + 1;
     end
     
+    fprintf(f, '</Document>\n');
     fprintf(f, '</kml>');
 
 end
