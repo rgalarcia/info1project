@@ -12,6 +12,6 @@ function [NP] = read_navPoints()
        NavPoint.lat = fscanf(f, '%f', 1);   %Llegeix lon
        NavPoint.long = fscanf(f, '%f', 1);   %Llgeix lat (com és l'ultim agafa tota la linia)
        NavPoints(n) = NavPoint;
-       n=n+1;
+       n = n + 1;
     end
-    NP=NavPoints;  %vector de structures 
+    NP = NavPoints;  %vector de structures 
