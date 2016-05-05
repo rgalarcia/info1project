@@ -20,3 +20,6 @@ end
 if barcelona.stars==[]
   disp('Im an error')
 end
+write_airports(Airports)
+plot_airports(Airports) %el error ya esta dentro de la funcion
+map_airports(Airports,LE)
