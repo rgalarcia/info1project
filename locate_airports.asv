@@ -3,12 +3,12 @@
 % be found in NavPoints (such as the ID, location of SIDS and STARS;
 % and the location of the airport -location of the first SID-).
 
-function Airports_full = locate_airports(Airports, NP)
+function Airports_full = locate_airports(Airports,NP)
     
     n = 1;
     while (n <= length(Airports))
         
-        i = 1; % SIDS CODE
+        i = 1; % 
         while (i <= length(Airports(n).SIDS))
             [lat,lon,id] = find_navPoint(NP, Airports(n).SIDS(i).NavPointName); % We retrieve the basic data of a navPoint
             Airports(n).SIDS(i).long = lon; % And we write it to the Airports vector
@@ -19,19 +19,15 @@ function Airports_full = locate_airports(Airports, NP)
         
         i = 1; % STARS CODE
         while (i <= length(Airports(n).STARTS))
-            [lat,lon,id] = find_navPoint(NP, Airports(n).STARTS(i).NavPointName);
+            [lat,lon,id] = find_navPoint(NP,Airports(n).STARTS(i).NavPointName);
             Airports(n).STARTS(i).long = lon;
             Airports(n).STARTS(i).lat = lat;
             Airports(n).STARTS(i).NavPointID = id;
             i=i+1;
         end
-        
-        % The airports location is the location of the first SID
         Airports(n).long = Airports(n).SIDS(1).long;
         Airports(n).lat = Airports(n).SIDS(1).lat;
-        
-        n = n + 1;
+        n = n + 1
     end
-    
     Airports_full = Airports;
 end   
