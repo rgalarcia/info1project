@@ -7,7 +7,6 @@ function [Airports] = read_airports()
     
     if(f == -1)
         disp('ERROR');
-        Airports = [];
     else
         while (~feof(f))
         Airports(r).name = fgetl(f);
@@ -28,6 +27,6 @@ function [Airports] = read_airports()
             n = n + 1;
         end
         r = r + 1;
-        end
     end
+    en
 end
