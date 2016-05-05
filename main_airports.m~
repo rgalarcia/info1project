@@ -1,10 +1,10 @@
 Airports = read_airports();
-if Airports==[]
+if Airports == []
    disp ('Im an error');
 end
 
 NavPoints = read_navPoints();
-if NavPoints==[]
+if NavPoints == []
   disp('Im a error');
 end
 
