@@ -15,7 +15,7 @@ function plot_airports (Airports)
         % airports(n) indicates the number of airports of 
         % the country country(n)
         
-        countries = {};
+        countries = [];
         airports = [];
 
         i = 1;
@@ -25,26 +25,25 @@ function plot_airports (Airports)
         while (i <= length(Airports))
             % The country of the actual airport
             cntry = strcat(Airports(i).name(1), Airports(i).name(2));
-            disp(cntry)
-            j
             
             % Saving data into the countries and airports vectors
             if (length(countries) == 0)
                 countries(j) = cellstr(cntry);
-                airports(j) = 1;
-            elseif (strcmp(countries(j), cellstr(cntry)))
+                airports(j) = airports(j) + 1;
+                j = j + 1;
+            elseif (countries(j) == cntry)
                 airports(j) = airports(j) + 1;
             else
                 j = j + 1;
                 countries(j) = cellstr(cntry);
-                airports(j) = 1;
-
+                airports(j) = airports(j) + 1;
             end
 
             i = i + 1;
         end
         
-        bar(airports);
-        set(gca, 'XTickLabel', countries, 'XTick', 1:numel(countries));
+        bar(countries, airports); % We plot the number of aiports of each country.
+        
+    end
     
 end

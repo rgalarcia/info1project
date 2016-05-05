@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>
+LEAL
+</name>
+<description>
+LEAL Airport
+</description>
+<Point>
+<coordinates>-0.556070, 38.282316, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEAM
+</name>
+<description>
+LEAM Airport
+</description>
+<Point>
+<coordinates>-2.373334, 36.842286, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEBL
+</name>
+<description>
+LEBL Airport
+</description>
+<Point>
+<coordinates>2.076866, 41.297290, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEGE
+</name>
+<description>
+LEGE Airport
+</description>
+<Point>
+<coordinates>2.761518, 41.891404, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEGR
+</name>
+<description>
+LEGR Airport
+</description>
+<Point>
+<coordinates>-3.791715, 37.190586, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEIB
+</name>
+<description>
+LEIB Airport
+</description>
+<Point>
+<coordinates>1.372430, 38.873155, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEJR
+</name>
+<description>
+LEJR Airport
+</description>
+<Point>
+<coordinates>-6.040238, 36.772549, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LELC
+</name>
+<description>
+LELC Airport
+</description>
+<Point>
+<coordinates>-0.828324, 37.778202, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LELL
+</name>
+<description>
+LELL Airport
+</description>
+<Point>
+<coordinates>2.042994, 41.508394, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEMD
+</name>
+<description>
+LEMD Airport
+</description>
+<Point>
+<coordinates>-3.561489, 40.479154, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEMG
+</name>
+<description>
+LEMG Airport
+</description>
+<Point>
+<coordinates>-4.499716, 36.675697, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEMH
+</name>
+<description>
+LEMH Airport
+</description>
+<Point>
+<coordinates>4.227265, 39.861889, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEPA
+</name>
+<description>
+LEPA Airport
+</description>
+<Point>
+<coordinates>2.746447, 39.551733, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEPP
+</name>
+<description>
+LEPP Airport
+</description>
+<Point>
+<coordinates>-1.633725, 42.736565, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LERS
+</name>
+<description>
+LERS Airport
+</description>
+<Point>
+<coordinates>1.164804, 41.136729, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LERT
+</name>
+<description>
+LERT Airport
+</description>
+<Point>
+<coordinates>-6.349164, 36.657276, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LESO
+</name>
+<description>
+LESO Airport
+</description>
+<Point>
+<coordinates>-1.919371, 43.289325, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LETO
+</name>
+<description>
+LETO Airport
+</description>
+<Point>
+<coordinates>-3.450802, 40.490977, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEVC
+</name>
+<description>
+LEVC Airport
+</description>
+<Point>
+<coordinates>-0.524896, 39.486741, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEVT
+</name>
+<description>
+LEVT Airport
+</description>
+<Point>
+<coordinates>-2.747116, 42.877283, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEVX
+</name>
+<description>
+LEVX Airport
+</description>
+<Point>
+<coordinates>-8.601667, 42.321389, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEXJ
+</name>
+<description>
+LEXJ Airport
+</description>
+<Point>
+<coordinates>-3.746243, 43.434086, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEZG
+</name>
+<description>
+LEZG Airport
+</description>
+<Point>
+<coordinates>-1.037044, 41.669413, 0</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>
+LEZL
+</name>
+<description>
+LEZL Airport
+</description>
+<Point>
+<coordinates>-5.915422, 37.428093, 0</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>
