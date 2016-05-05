@@ -10,9 +10,9 @@ end
 
 Airports = locate_airports(Airports,NavPoints);
 
-barcelona.sids = airport_sids(Airports,LEBL);
+barcelona.sids = airport_sids(Airports,'LEBL');
 
-barcelona.stars = airport_stars(Airports,LEBL);
+barcelona.stars = airport_stars(Airports,'LEBL');
 
 if (isempty(barcelona.sids))
   disp('Im an error');
