@@ -4,7 +4,7 @@ if (isempty(Airports))
 end
 
 NavPoints = read_navPoints();
-if (isempty(NP))
+if (isempty(NavPoints))
   disp('Im a error');
 end
 
