@@ -1,6 +1,6 @@
 function [Airports] = read_airports()
     Tnavpoint=struct('NavPointID', 0, 'NavPointName', ' ', 'long', 0.0, 'lat', 0.0);
-    Tairports = struct('name',' ', 'SIDS', Tnavpoint, 'STARTS', Tnavpoint, 'long', 0.0, 'lat', 0.0);
+    Tairports = struct('name',' ', 'SIDS', Tnavpoint, 'STARS', Tnavpoint, 'long', 0.0, 'lat', 0.0);
     Airports = Tairports;
     f = fopen('Airports.txt', 'r');
     r = 1;  %row 1
@@ -24,7 +24,7 @@ function [Airports] = read_airports()
         n = 1;
         while (n<=length(V))
             Tnavpoint.NavPointName = V{n};
-            Airports(r).STARTS(n) = Tnavpoint;
+            Airports(r).STARS(n) = Tnavpoint;
             n = n + 1;
         end
         r = r + 1;
