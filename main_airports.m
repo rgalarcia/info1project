@@ -22,4 +22,4 @@ if (isempty(barcelona.stars))
 end
 write_airports(Airports)
 plot_airports(Airports) %el error ya esta dentro de la funcion
-map_airports(Airports,LE)
+map_airports(Airports,'LE')
