@@ -4,7 +4,7 @@
 function plot_airports (Airports)
     
     % If the airports struct is empty, then we have to throw an exception
-    if (isempty(Airports))
+    if (isempty(Airport))
         
         fprintf('Please provide a valid vector of airports.\n');
         return;

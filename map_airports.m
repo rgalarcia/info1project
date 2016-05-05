@@ -44,4 +44,5 @@ function map_airports (Airports, countryId)
     end
     
     fprintf(f, '</kml>');
+
 end
