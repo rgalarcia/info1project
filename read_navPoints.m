@@ -15,4 +15,3 @@ function [NP] = read_navPoints()
        n=n+1;
     end
     NP=NavPoints;  %vector de structures 
-end    
