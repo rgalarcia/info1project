@@ -25,8 +25,8 @@ function [Airports] = read_airports()
             
             n = 1;
             while (n <= length(V))
-                Tnavpoints.NavPointName = V{n};
-                Airports(r).SIDS(n) = Tnavpoints;
+                TnavPoints.NavPointName = V{n};
+                Airports(r).SIDS(n) = TnavPoints;
                 n = n + 1;
             end
             
@@ -37,8 +37,8 @@ function [Airports] = read_airports()
             
             n = 1;
             while (n <= length(V))
-                Tnavpoints.NavPointName = V{n};
-                Airports(r).STARS(n) = Tnavpoints;
+                TnavPoints.NavPointName = V{n};
+                Airports(r).STARS(n) = TnavPoints;
                 n = n + 1;
             end
             

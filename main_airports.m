@@ -23,8 +23,8 @@ if (isempty(barcelona.stars))
     disp('STARS not found for LEBL (BCN) airport');
 end
 
-sids % Show SIDS
-stars % Show STARS
+barcelona.sids % Show SIDS
+barcelona.stars % Show STARS
 
 write_airports(Airports) % Saves airports location data into an external file (AirportsLoc.txt)
 plot_airports(Airports) % Plots the airports for each country

@@ -6,7 +6,11 @@
 function Airports_full = locate_airports(Airports, NP)
     
     n = 1;
+    j = 1; % Loading var
     while (n <= length(Airports))
+        if (j == 1)
+            fprintf('Processing data.');
+        end
         
         i = 1; % SIDS CODE
         while (i <= length(Airports(n).SIDS))
@@ -15,15 +19,25 @@ function Airports_full = locate_airports(Airports, NP)
             Airports(n).SIDS(i).lat = lat;
             Airports(n).SIDS(i).NavPointID = id;
             i = i + 1;
+            
+            j = j + 1;
+            if (mod(j, 100)==0) % Every 100 iterations, put a dot
+                fprintf('.');
+            end
         end
         
         i = 1; % STARS CODE
-        while (i <= length(Airports(n).STARTS))
-            [lat,lon,id] = find_navPoint(NP, Airports(n).STARTS(i).NavPointName);
-            Airports(n).STARTS(i).long = lon;
-            Airports(n).STARTS(i).lat = lat;
-            Airports(n).STARTS(i).NavPointID = id;
-            i=i+1;
+        while (i <= length(Airports(n).STARS))
+            [lat,lon,id] = find_navPoint(NP, Airports(n).STARS(i).NavPointName);
+            Airports(n).STARS(i).long = lon;
+            Airports(n).STARS(i).lat = lat;
+            Airports(n).STARS(i).NavPointID = id;
+            i = i + 1;
+            
+            j = j + 1;
+            if (mod(j, 100)==0) % Every 100 iterations, put a dot
+                fprintf('.');
+            end
         end
         
         % The airports location is the location of the first SID
@@ -32,6 +46,7 @@ function Airports_full = locate_airports(Airports, NP)
         
         n = n + 1;
     end
+    fprintf('\nDone!\n\n');
     
     Airports_full = Airports;
 end   

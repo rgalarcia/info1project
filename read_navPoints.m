@@ -14,14 +14,21 @@ function [NP] = read_navPoints()
         NP = [];
     else
         n = 1;
+        fprintf('Reading data.');
         while (~feof(f))
            NavPoint.NavPointID = fscanf(f, '%d', 1);    % Llegeix ID
            NavPoint.NavPointName = fscanf(f, '%s', 1);  % Llegix nom
            NavPoint.lat = fscanf(f, '%f', 1);           % Llegeix lat
            NavPoint.long = fscanf(f, '%f', 1);          % Llgeix long (com és l'ultim agafa tota la linia)
            NavPoints(n) = NavPoint;
+           
+           if (mod(n, 500)==0) % Every 500 iterations, print a dot
+               fprintf('.');
+           end
+           
            n = n + 1;
         end
+        fprintf('\nDone!\n\n');
     end
     
     NP = NavPoints;  % vector de structures
