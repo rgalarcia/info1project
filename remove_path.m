@@ -1,0 +1,17 @@
+% Given a vector of paths, this function
+% removes a specified path from it
+
+function pts2 = remove_path (pts, ind)
+    
+    i = 1;
+    % We copy each of the paths, except the 
+    % specificated one, to a new Tpath structure
+    while (i <= length(pts))
+        if (i ~= ind)
+            pts2.points(i) = pts.points(i);
+        end
+        
+        i = i + 1;
+    end
+
+end
