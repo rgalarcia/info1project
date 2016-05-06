@@ -25,8 +25,6 @@ function plot_airports (Airports)
         while (i <= length(Airports))
             % The country of the actual airport
             cntry = strcat(Airports(i).name(1), Airports(i).name(2));
-            disp(cntry)
-            j
             
             % Saving data into the countries and airports vectors
             if (length(countries) == 0)
