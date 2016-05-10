@@ -26,20 +26,25 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
 
                 % But we still check its neighbors
                 neighbors = neighbor_nodes(g, lastnode);
+                fprintf('%d %c\n', i, node_name(g, lastnode));
 
                 j = 1;
                 while (j <= length(neighbors))
+                    
+                    fprintf('\t\t%d:%c(%g) ', i+j, node_name(g, neighbors(j), direct_cost(lastnode, neighbors(j)) ));
 
-                    %TODO: Search if the j'th neighbor is inside the
-                    %minimum cost path (the one we deleted)
-                    if (neighbors(j) )
-                        
+                    % TODO: We calculate the cost of the path if we add
+                    % this new node
+                    
+                    if (path_weight_node(prov_path, neighbors(j)) ~= -1)
+                        % If the neighbor already exists in the path, we do
+                        % nothing
                     else
                         
                     end
                     
                 end
-                
+                fprintf('\n');
             end
         end
     end
