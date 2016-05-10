@@ -15,5 +15,9 @@ function pts2 = remove_path (pts, ind)
         
         i = i + 1;
     end
+    
+    if (~exist('pts2'))
+        pts2 = [];
+    end
 
 end

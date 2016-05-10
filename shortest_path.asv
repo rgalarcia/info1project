@@ -55,7 +55,7 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
 
                 % But we still check its neighbors
                 neighbors = neighbor_nodes(g, mp_lastnode);
-                fprintf('%d %c\n', mp_lastnode, node_name(g, mp_lastnode));
+                fprintf('%d %c\n', i, node_name(g, mp_lastnode));
 
                 j = 1;
                 while (j <= length(neighbors))
@@ -72,10 +72,8 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                     
                     if (path_weight_node(prov_path.points, neighbors(j)) == -1)
                         % The neighbor does not exist in the path
-                        
+                        i = i + 1;
                         new_path = create_path();
-                        new_path = add_node_to_path(new_path, neighbors(j), CostePrevisto);
-                        path_list{length(path_list)+1} = new_path;
                         
                     else
                         % If the neighbor already exists in the path
