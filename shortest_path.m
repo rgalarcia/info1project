@@ -16,6 +16,7 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
         if (isempty(path_list)) % Oops, there is no possible route
             fprintf('No possible route to the desired destination\n');
             endofloop = true; % Bye bye
+            porDonde = -1;
         else
             
             %%% SITUATION %%%
@@ -33,18 +34,18 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
             minimum_path = path_minimum_weight(path_list); % Which is the traitor?
             mp_lastnode = path_list{minimum_path}.points(length(path_list(minimum_path))).node; % Which is its last node?
             
-            if (mp_lastnode == nEnd) % Its last node is the one we want to reach!
+            if (mp_lastnode == node_index(g, nEnd)) % Its last node is the one we want to reach!
                 % We found the best possible route
+                porDonde = path_list{minimum_path};
                 endofloop = true; % Hoorray!
             else
                 %%% So, the last node of the minimum cost path is not the
                 %%% destination. No problem, we will go ahead.
                 
                 prov_path = path_list{minimum_path}; % We temporary save the path
-                porDonde = prov_path;
                 path_list = remove_path(path_list, minimum_path); % We get rid of it
                 
-               % disp('Prov_path: ');
+%                 disp('Prov_path: ');
 %                 prov_path
 %                 disp('Path_list: ');
 %                 path_list
