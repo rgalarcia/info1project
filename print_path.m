@@ -3,7 +3,7 @@
 function print_path (g, p)
 
     i = 1;
-    fprintf('%d: ', p(length(p)).node); % Total cost of the path
+    fprintf('%d: ', p(length(p)).weight); % Total cost of the path
     
     while (i <= length(p)) % Elements of the path
         
