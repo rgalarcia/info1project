@@ -37,4 +37,4 @@ g=add_segment(g, s);
 s=create_segment(node_index(g, 'G'), node_index(g, 'H'), 1);
 g=add_segment(g, s);
 
-p = shortest_path(g, 'A', 'E', true);
+p = shortest_path(g, 'A', 'H', true);

@@ -7,7 +7,7 @@ function print_path (g, p)
     
     while (i <= length(p)) % Elements of the path
         
-        name = g(p(i).node);
+        name = g.nodes(p(i).node);
         fprintf('%c ', name);
         i = i + 1;
         

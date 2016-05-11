@@ -7,11 +7,22 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
     i = 1;
     path_list{i} = path; % The first path is inserted into the list of paths
     
-    fprintf('Graph information:\n');
-    fprintf('------------------\n');
+    if (verbose)
+        graph_information(g);
+    end
     
     endofloop = false; % End of loop is achieved if the route is found or there is not possible route
     while (~endofloop)
+        
+        if (verbose)
+            w = 1;
+            while (w <= length(path_list))
+                print_path(g, path_list{w}.points);
+                w = w + 1;
+            end
+            fprintf('----------------------------\n');
+            fprintf('----------------------------\n');
+        end
         
         if (isempty(path_list)) % Oops, there is no possible route
             fprintf('No possible route to the desired destination\n');
@@ -56,15 +67,9 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
 
                 % But we still check its neighbors
                 neighbors = neighbor_nodes(g, mp_lastnode);
-                if (verbose)
-                    fprintf('%d %c\n', mp_lastnode, node_name(g, mp_lastnode));
-                end
 
                 j = 1;
                 while (j <= length(neighbors))
-                    if (verbose)
-                        fprintf('\t%d:%c(%g) ', neighbors(j), node_name(g, neighbors(j)), direct_cost(g, mp_lastnode, neighbors(j)) );
-                    end
                     
                     % We calculate the cost of the path if we add this new node
                     
@@ -91,14 +96,9 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                         k = k + 1;
                     end
                     
-                    if (~found)
-                        % The neighbor does not exist in the path
-                        
-                        new_path = prov_path;
-                        new_path = add_node_to_path(new_path, neighbors(j), CostePrevisto);
-                        path_list{length(path_list)+1} = new_path;
-                        
-                    else
+                    insert = false;
+                    
+                    if (found)
                         % If the neighbor already exists in the path
                         k = 1;
                         while (k <= length(found_costs))
@@ -108,17 +108,29 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                                 % paths)
                             else
                                 path_list = remove_path(path_list, found_indexes(k)); % We get rid of it
+                                %disp('hello');
+                                insert = true;
                             end
                             
                             k = k + 1;
                         end
+                    end
+                    if (~found || insert)
+                        % The neighbor does not exist in the path
                         
+                        new_path = prov_path;
+                        new_path = add_node_to_path(new_path, neighbors(j), CostePrevisto);
+                        path_list{length(path_list)+1} = new_path;
+                        %fprintf('I just added %d to the path nodes\n', neighbors(j));
+                        
+                    
                     end
                     
                     j = j + 1;
                 end
-                fprintf('\n');
+                
             end
         end
+        
     end
 end
