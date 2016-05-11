@@ -32,7 +32,7 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
             
             
             minimum_path = path_minimum_weight(path_list); % Which is the traitor?
-            mp_lastnode = path_list{minimum_path}.points(length(path_list(minimum_path))).node; % Which is its last node?
+            mp_lastnode = path_list{minimum_path}.points(length(path_list{minimum_path}.points)).node; % Which is its last node?
             
             if (mp_lastnode == node_index(g, nEnd)) % Its last node is the one we want to reach!
                 % We found the best possible route
@@ -94,7 +94,7 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                     if (~found)
                         % The neighbor does not exist in the path
                         
-                        new_path = create_path();
+                        new_path = prov_path;
                         new_path = add_node_to_path(new_path, neighbors(j), CostePrevisto);
                         path_list{length(path_list)+1} = new_path;
                         
