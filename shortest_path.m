@@ -55,22 +55,42 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
 
                 % But we still check its neighbors
                 neighbors = neighbor_nodes(g, mp_lastnode);
-                fprintf('%d %c\n', mp_lastnode, node_name(g, mp_lastnode));
+                if (verbose)
+                    fprintf('%d %c\n', mp_lastnode, node_name(g, mp_lastnode));
+                end
 
                 j = 1;
                 while (j <= length(neighbors))
+                    if (verbose)
+                        fprintf('\t%d:%c(%g) ', neighbors(j), node_name(g, neighbors(j)), direct_cost(g, mp_lastnode, neighbors(j)) );
+                    end
                     
-                    fprintf('\t%d:%c(%g) ', neighbors(j), node_name(g, neighbors(j)), direct_cost(g, mp_lastnode, neighbors(j)) );
-
-                    % TODO: We calculate the cost of the path if we add
-                    % this new node
+                    % We calculate the cost of the path if we add this new node
                     
                     CostePrevistoP1 = path_weight_node(prov_path.points, mp_lastnode);
                     CostePrevistoP2 = direct_cost(g, mp_lastnode, neighbors(j));
                     CostePrevisto = CostePrevistoP1 + CostePrevistoP2;
-                    disp(CostePrevisto);
                     
-                    if (path_weight_node(prov_path.points, neighbors(j)) == -1)
+                    % We look if the current neighbor exists
+                    % in any of the paths of the path vector
+                    k = 1;
+                    i = 1;
+                    found = false;
+                    found_costs = [];
+                    found_indexes = [];
+                    
+                    while (k <= length(path_list))
+                        cost = path_weight_node(path_list{k}.points, neighbors(j));
+                        if (cost ~= -1)
+                            found = true; % We found it!
+                            found_costs(i) = cost;
+                            found_indexes(i) = k;
+                            i = i + 1;
+                        end
+                        k = k + 1;
+                    end
+                    
+                    if (~found)
                         % The neighbor does not exist in the path
                         
                         new_path = create_path();
@@ -79,9 +99,20 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                         
                     else
                         % If the neighbor already exists in the path
+                        k = 1;
+                        while (k <= length(found_costs))
+                            if (found_costs(k) < CostePrevisto)
+                                % We do nothing (we already have a better way
+                                % to reach the neighbour node in the list of
+                                % paths)
+                            else
+                                path_list = remove_path(path_list, found_indexes(k)); % We get rid of it
+                            end
+                            
+                            k = k + 1;
+                        end
                         
                     end
-                    
                     
                     j = j + 1;
                 end
@@ -89,5 +120,4 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
             end
         end
     end
-
 end

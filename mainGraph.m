@@ -30,5 +30,11 @@ s=create_segment(node_index(g, 'D'), node_index(g, 'G'), 1);
 g=add_segment(g, s);
 s=create_segment(node_index(g, 'D'), node_index(g, 'H'), 4);
 g=add_segment(g, s);
+s=create_segment(node_index(g, 'E'), node_index(g, 'F'), 5);
+g=add_segment(g, s);
+s=create_segment(node_index(g, 'G'), node_index(g, 'F'), 1);
+g=add_segment(g, s);
+s=create_segment(node_index(g, 'G'), node_index(g, 'H'), 1);
+g=add_segment(g, s);
 
 p = shortest_path(g, 'A', 'F', true);
