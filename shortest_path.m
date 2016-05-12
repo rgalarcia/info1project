@@ -4,10 +4,10 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
     path = create_path(); % We create the very first path to later insert it into the list
     path = add_node_to_path(path, node_index(g, nStart), 0); %	It consists of the specified origin node, with weight 0
     
-    i = 1;
-    path_list{i} = path; % The first path is inserted into the list of paths
+    path_list{1} = path; % The first path is inserted into the list of paths
     
     if (verbose)
+        % If verbose mode enabled, we print the graph information
         graph_information(g);
     end
     
@@ -15,6 +15,8 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
     while (~endofloop)
         
         if (verbose)
+            % We print the information of the routes in the list for
+            % every iteration whenever the verbose mode is enabled
             w = 1;
             while (w <= length(path_list))
                 print_path(g, path_list{w}.points);
@@ -35,12 +37,12 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
             % We are provided with a list of paths.
             % Right now, we have to find, from this list of paths,
             % the one which has the minimum cost.
+            % If its last node is our destination node,
             % Once we find it, we must add the neighbors of its last node
-            % to the list of paths.
+            % to the list of paths, but only if some conditions are met.
             % And then delete the path that we found to be the one with
             % the minimum possible cost.
             %%% /SITUATION %%%
-            
             
             minimum_path = path_minimum_weight(path_list); % Which is the traitor?
             mp_lastnode = path_list{minimum_path}.points(length(path_list{minimum_path}.points)).node; % Which is its last node?
@@ -55,15 +57,6 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                 
                 prov_path = path_list{minimum_path}; % We temporary save the path
                 path_list = remove_path(path_list, minimum_path); % We get rid of it
-                
-%                 disp('Prov_path: ');
-%                 prov_path
-%                 disp('Path_list: ');
-%                 path_list
-%                 disp('Mp_lastnode: ');
-%                 mp_lastnode
-%                 disp('node_name(Mp_lastnode): ');
-%                 node_name(g, mp_lastnode)
 
                 % But we still check its neighbors
                 neighbors = neighbor_nodes(g, mp_lastnode);
@@ -89,48 +82,54 @@ function [porDonde] = shortest_path (g, nStart, nEnd, verbose)
                         cost = path_weight_node(path_list{k}.points, neighbors(j));
                         if (cost ~= -1)
                             found = true; % We found it!
-                            found_costs(i) = cost;
-                            found_indexes(i) = k;
+                            found_costs(i) = cost; % We add the costs of getting to the neighbour
+                            found_indexes(i) = k; % We add the indexes of the paths that get to the neighbor
                             i = i + 1;
                         end
                         k = k + 1;
                     end
                     
-                    insert = false;
+                    insert = false; % Insert determines whether the considered path should be inserted in the list
                     
                     if (found)
-                        % If the neighbor already exists in the path
+                        % If there is a path that already gets to the neighbor 
                         k = 1;
                         while (k <= length(found_costs))
-                            if (found_costs(k) < CostePrevisto)
+                            if (found_costs(k) <= CostePrevisto)
                                 % We do nothing (we already have a better way
                                 % to reach the neighbour node in the list of
                                 % paths)
+                                insert = false;
                             else
-                                path_list = remove_path(path_list, found_indexes(k)); % We get rid of it
-                                %disp('hello');
-                                insert = true;
+                                % This is a better way to reach the
+                                % neighbor node that any path in the list
+                                path_list = remove_path(path_list, found_indexes(k)); % We get rid of the other path
+                                insert = true; % We have to remember later that this path has to be added to the list of paths
                             end
                             
-                            k = k + 1;
+                            k = k + 1; % We check the next path that gets to the neighbor
                         end
                     end
+                    
                     if (~found || insert)
-                        % The neighbor does not exist in the path
+                        % There is no path to get to this neighbor inside the list's paths.
+                        % Or, this path is a better way of getting to the neighbor that the paths in the list.
+                        % We add this path to the list of paths.
                         
                         new_path = prov_path;
                         new_path = add_node_to_path(new_path, neighbors(j), CostePrevisto);
                         path_list{length(path_list)+1} = new_path;
-                        %fprintf('I just added %d to the path nodes\n', neighbors(j));
-                        
-                    
                     end
                     
-                    j = j + 1;
-                end
+                    j = j + 1; % Let's check the next neighbor node
+                    
+                end % End of the loop that checks and decides whether to insert every single ne
                 
-            end
-        end
-        
-    end
-end
+            end % End of the condition which makes sure that we did not actually finally find the route
+            
+            % We calculated which was the minimum cost path
+            % of the list inside this code snippet
+            
+        end % End of the condition which makes sure that the list of paths is not empty
+    end % End of the algorithm's loop
+end % End of the function
