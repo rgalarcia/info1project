@@ -1,6 +1,6 @@
 function[g2]=complete_graph(g,airports)
 
-    i=length(g.nodes) + 1; %we need to kwnow how many nodes are
+    i=length(g.nodes) + 1; %We need to kwnow how many nodes are.
     
     n=1;
     
@@ -17,3 +17,4 @@ function[g2]=complete_graph(g,airports)
     
     i=lenth (g.segments)+ 1
     while (n<=length(Airport))
+      
