@@ -16,4 +16,4 @@ function[g2]=complete_graph(g,airports)
     n = 1;
     
     i=lenth (g.segments)+ 1
-    whilen <=length(Airport)
+    while (n<=length(Airport))
